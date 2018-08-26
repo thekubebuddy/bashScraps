@@ -1,0 +1,8 @@
+{
+    "dev": {
+        "app_function": "app.app", 
+        "s3_bucket": "zappa-422573b03",
+	"slim_handler": true,
+	"runtime": "python3.6"
+    }
+}
