@@ -1,3 +1,0 @@
-https://devops.profitbricks.com/tutorials/deploy-a-flask-application-on-ubuntu-1404/
-vishnunut.me
-https://www.hackster.io/mjrobot/python-webserver-with-flask-and-raspberry-pi-41b5fc
