@@ -1,0 +1,44 @@
+
+1. Find
+ find ./ -name '\*.sh'
+ find ./ -type f \\( -name  '\*.sh.\*' -o -name '\*.sh' \\)
+ -size 1k 1M 1w(byte)
+ -mtime 
+ -atime 
+ -perm
+ -exec {} \; 
+
+2. grep 
+grep -irln ./ --color -e 'hello\*'  
+grep -irlE ./ -e 'hell'
+grep -irnE ./ -e 'Example\*|unannotated\*' --color
+
+3. du
+du -sh .
+du -sh *
+
+4. wc ( lines words characters )
+cat abc.txt | wc
+
+5. tail head cat
+cat -n abc.txt
+vim +15 abc.txt
+tail -f abc.txt
+head -n 10 abc.txt
+
+. SED
+
+sed '/^$/d'
+sed 's/parttime/fulltime/1' abc.txt => first occurence in line
+sed 's/parttime/fulltime/2' abc.txt => 2nd occurence in line
+sed -n 1p abc.txt
+sed 's/parttime/fulltime/1w abcd.txt' abc.txt => substitude and write it into abcd.txt
+sed '11 s/parttime/fulltime/' abc.txt => replace only on 11line
+sed '11 s/parttime/[fulltime]/2' abc.txt => replace only on 11line 2nd occurnce
+sed '1,5 s/parttime/fulltime/' abc.txt => replace between 1,5 lines
+sed 's|//.\*||' abc.txt ==> all comments  
+
+
+
+
+ 
