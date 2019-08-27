@@ -26,6 +26,10 @@ vim +15 abc.txt
 tail -f abc.txt
 head -n 10 abc.txt
 
+6. scp
+scp -vpCr hello.txt user@192.168.0.1:~/Desktop/
+
+
 . SED
 
 sed '/^$/d'
