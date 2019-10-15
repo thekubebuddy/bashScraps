@@ -3,6 +3,7 @@ set number
 set autoindent
 set colorcolumn=72
 set textwidth=80
+set tabstop=4
 "set ruler
 colo ron
 imap<C-c> <esc>y<CR>
