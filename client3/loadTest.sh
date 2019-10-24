@@ -15,6 +15,7 @@ validateQueueDepthTest()
 	queueDepth=$(getRemoteDepth)
 	echo "QueueDepth: $queueDepth"
 	if [[ $queueDepth -ne 0 ]]
+	if [[ "$queueDepth" != "0" ]]
 	then
 	 echo ">>Remote queue is still non zero"
 	 echo ">>Calling mtasCq -c"
