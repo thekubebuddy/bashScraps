@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./parameter.config
+#source ./parameter.config
 NOW=$(date +"%d%h%Y_%H%M%S")
 LOG_FILE=LOGFILE_$NOW.txt
 exec 
@@ -18,6 +18,15 @@ call_test_20()
 	echo "------------------------------------------"
 	echo "Function called successfully"
 }
-touch $LOG_FILE
-call_test_20 start
+# Creating a LOG file
+#touch $LOG_FILE
+#call_test_20 start
+
+
+if [[ "$1" == "Hello" ]]
+then
+	echo "$1"
+else
+	echo "Not desired parameter"
+fi
 
