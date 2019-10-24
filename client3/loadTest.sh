@@ -35,7 +35,7 @@ validateQueueDepthTest()
 echo "Calling queueDepthFunction for $noOfIterations time for an interval of $intervalInSec"
 while [[ $i -le $noOfIterations ]]
 do
-echo ">>in while loop"
+#echo ">>in while loop"
 echo "----------------------------------------"
 validateQueueDepthTest  #Validate queue funtion returns 
 retValue=$?
