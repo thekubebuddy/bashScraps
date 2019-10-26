@@ -1,0 +1,107 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<build>
+  <actions>
+    <hudson.model.CauseAction>
+      <causeBag class="linked-hash-map">
+        <entry>
+          <com.dabsquared.gitlabjenkins.cause.GitLabWebHookCause plugin="gitlab-plugin@1.5.13">
+            <data>
+              <actionType>PUSH</actionType>
+              <sourceProjectId>15017413</sourceProjectId>
+              <targetProjectId>15017413</targetProjectId>
+              <branch>master</branch>
+              <sourceBranch>master</sourceBranch>
+              <userName>ishaq_shaikh</userName>
+              <userEmail></userEmail>
+              <sourceRepoHomepage>https://gitlab.com/ishaq4466/cicd</sourceRepoHomepage>
+              <sourceRepoName>CICD</sourceRepoName>
+              <sourceNamespace>ishaq_shaikh</sourceNamespace>
+              <sourceRepoUrl>git@gitlab.com:ishaq4466/cicd.git</sourceRepoUrl>
+              <sourceRepoSshUrl>git@gitlab.com:ishaq4466/cicd.git</sourceRepoSshUrl>
+              <sourceRepoHttpUrl>https://gitlab.com/ishaq4466/cicd.git</sourceRepoHttpUrl>
+              <mergeRequestTitle></mergeRequestTitle>
+              <mergeRequestDescription></mergeRequestDescription>
+              <mergeRequestState></mergeRequestState>
+              <mergedByUser></mergedByUser>
+              <mergeRequestAssignee></mergeRequestAssignee>
+              <targetBranch>master</targetBranch>
+              <targetRepoName></targetRepoName>
+              <targetNamespace></targetNamespace>
+              <targetRepoSshUrl></targetRepoSshUrl>
+              <targetRepoHttpUrl></targetRepoHttpUrl>
+              <triggeredByUser>ishaq_shaikh</triggeredByUser>
+              <before>3b8585c2f211c12574aa4735fa3750ed4d8d40ae</before>
+              <after>f7ec7992a5dd053859a7dbadce3bef13f8de1a7c</after>
+              <lastCommit>f7ec7992a5dd053859a7dbadce3bef13f8de1a7c</lastCommit>
+              <targetProjectUrl>https://gitlab.com/ishaq4466/cicd</targetProjectUrl>
+            </data>
+          </com.dabsquared.gitlabjenkins.cause.GitLabWebHookCause>
+          <int>1</int>
+        </entry>
+      </causeBag>
+    </hudson.model.CauseAction>
+    <hudson.triggers.SCMTrigger_-BuildAction/>
+    <hudson.plugins.git.RevisionParameterAction plugin="git@3.9.1">
+      <commit>remotes/origin/master</commit>
+      <combineCommits>false</combineCommits>
+      <repoURL plugin="git-client@2.7.3">
+        <path>ishaq4466/cicd.git</path>
+        <rawPath>ishaq4466/cicd.git</rawPath>
+        <user>git</user>
+        <port>-1</port>
+        <host>gitlab.com</host>
+      </repoURL>
+    </hudson.plugins.git.RevisionParameterAction>
+    <hudson.plugins.git.util.BuildData plugin="git@3.9.1">
+      <buildsByBranchName>
+        <entry>
+          <string>refs/remotes/origin/master</string>
+          <hudson.plugins.git.util.Build>
+            <marked plugin="git-client@2.7.3">
+              <sha1>f7ec7992a5dd053859a7dbadce3bef13f8de1a7c</sha1>
+              <branches class="list">
+                <hudson.plugins.git.Branch>
+                  <sha1 reference="../../../sha1"/>
+                  <name>refs/remotes/origin/master</name>
+                </hudson.plugins.git.Branch>
+              </branches>
+            </marked>
+            <revision reference="../marked"/>
+            <hudsonBuildNumber>4</hudsonBuildNumber>
+          </hudson.plugins.git.util.Build>
+        </entry>
+      </buildsByBranchName>
+      <lastBuild reference="../buildsByBranchName/entry/hudson.plugins.git.util.Build"/>
+      <remoteUrls>
+        <string>ssh://git@gitlab.com/ishaq4466/cicd</string>
+      </remoteUrls>
+    </hudson.plugins.git.util.BuildData>
+    <hudson.plugins.git.GitTagAction plugin="git@3.9.1">
+      <tags class="hudson.util.CopyOnWriteMap$Tree">
+        <entry>
+          <string>refs/remotes/origin/master</string>
+          <list/>
+        </entry>
+      </tags>
+      <ws>/var/lib/jenkins/workspace/gitlab-integration/job1</ws>
+    </hudson.plugins.git.GitTagAction>
+    <hudson.scm.SCMRevisionState_-None/>
+  </actions>
+  <queueId>34</queueId>
+  <timestamp>1572087695565</timestamp>
+  <startTime>1572087695567</startTime>
+  <result>SUCCESS</result>
+  <description>Started by GitLab push by ishaq_shaikh</description>
+  <duration>3611</duration>
+  <charset>UTF-8</charset>
+  <keepLog>false</keepLog>
+  <builtOn></builtOn>
+  <workspace>/var/lib/jenkins/workspace/gitlab-integration/job1</workspace>
+  <hudsonVersion>2.199</hudsonVersion>
+  <scm class="hudson.plugins.git.GitChangeLogParser" plugin="git@3.9.1">
+    <authorOrCommitter>false</authorOrCommitter>
+  </scm>
+  <culprits class="com.google.common.collect.RegularImmutableSortedSet">
+    <string>jenkins</string>
+  </culprits>
+</build>
