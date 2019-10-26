@@ -1,0 +1,22 @@
+Started by user [8mha:////4AqWLOMc3fN+r/t1gA2bF4Bw/1xfmST4ObRSZjHVzVIJAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/termiate-ec2/ec2-job
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+[ec2-job] $ /bin/sh -xe /tmp/jenkins5676094123954230932.sh
++ echo '********** EC2 state change job triggered *************'
+********** EC2 state change job triggered *************
++ echo 'Instance Id: i-0409b6b933ab2a1f6'
+Instance Id: i-0409b6b933ab2a1f6
++ echo 'Instance state: stop '
+Instance state: stop 
++ '[' stop == start ']'
++ '[' stop == stop ']'
++ echo 'Stopping the instance as per parameter'
+Stopping the instance as per parameter
++ aws ec2 terminate-instances --instance-ids i-0409b6b933ab2a1f6 --region ap-south-1 --dry-run
+
+An error occurred (UnauthorizedOperation) when calling the TerminateInstances operation: You are not authorized to perform this operation. Encoded authorization failure message: pTTHtc9cR95-8Sn2c8FYoHCf8uzGmbHXpWfxEoNTbfCOMNOaHNEBM5Ud5iUqB-dFcS0_AhNz_-3dx3XzyjQITl7I4IyxAmOZHx5iHIYsyZuH70MxqPmL53x5QRnhZYU4KAJ0Y9pco9gUDCYT77Y3M3XobYGXdqUejEifaEXyMBGmwARrBT3651vRBtIOszUbLv8r8vFXRH9jmj2FuoXjowUWHgZfTj4Z_4TXIJjGfQuZi1kDYDOefO5cwFOSS8ztyPthj92H9OkVPGs-VtR-b7c99JjXMHlINxKvGlK8c6d5Qz1-0POwJSK_OS8VK9itDmS0ECwCL_0w85PCYIooaMBQ-v69U4UCrCHAKOTxnRm4fg3A8Hg2FaauYrAXTAqCo1ywZGMiIprC7-XOg262IKOX9XLYJK3xRekodM5w0O1cpFYGwYt9ltUvu91Cy-eWJVBdbD1QOCZaV665zxXdHN7YscLE1Nmu6KBNeOJPvJXsjIIvN6xLP9swoIk8HNB455GdtYib9jGzjVbXcISY35vIawYfAszTPAejJPebW2EWUOBMRlredPaO25FVQOc22U3VFDio2qH92lSDS5fnzahFVslyHqqzu27joDyF0K8ZwGXY3p_XK0iAzHzAJnPxmx2uCXNY3Z6Wokfp2_vRcy7o-en0x0D6WxlOdkT7zy0QoZkVEdjIqB3LLoQf3bXO8CuZAgxqFXFIsPPeyVmx-G0MvJJDWolVmSg
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE

@@ -1,0 +1,21 @@
+Started by user [8mha:////4AqWLOMc3fN+r/t1gA2bF4Bw/1xfmST4ObRSZjHVzVIJAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/termiate-ec2/ec2-job
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+[ec2-job] $ /bin/sh -xe /tmp/jenkins2482946693927598370.sh
++ echo '********** EC2 state change job triggered *************'
+********** EC2 state change job triggered *************
++ echo 'Instance Id: i-0409b6b933ab2a1f6'
+Instance Id: i-0409b6b933ab2a1f6
++ echo 'Instance state: start '
+Instance state: start 
++ '[' start == start ']'
++ echo 'Starting the instance as per parameter'
+Starting the instance as per parameter
++ aws ec2 start-instances --instance-id i-0409b6b933ab2a1f6 --region ap-south-1 --dry-run
+
+An error occurred (DryRunOperation) when calling the StartInstances operation: Request would have succeeded, but DryRun flag is set.
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE

@@ -1,0 +1,14 @@
+Started by user [8mha:////4AqWLOMc3fN+r/t1gA2bF4Bw/1xfmST4ObRSZjHVzVIJAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/termiate-ec2/ec2-job
+[ec2-job] $ /bin/sh -xe /tmp/jenkins3060939537432418052.sh
++ echo 'EC2 termination job triggered'
+EC2 termination job triggered
++ echo 'Instance Id: 00000'
+Instance Id: 00000
++ echo 'Instance state: stop '
+Instance state: stop 
++ aws s3 ls
+Unable to locate credentials. You can configure credentials by running "aws configure".
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE

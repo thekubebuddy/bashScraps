@@ -1,0 +1,84 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>instance_id</name>
+          <description>ec2 instance id</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>i-0adaf165e20af0b4e</string>
+              <string>i-0409b6b933ab2a1f6</string>
+              <string>i-0409b6b933ab2a1f6</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>instance_state</name>
+          <description></description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>start</string>
+              <string>stop</string>
+              <string>terminate</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash
+
+echo &quot;********** EC2 state change job triggered *************&quot;
+region=ap-south-1
+echo &quot;Instance Id: $id &quot;
+echo &quot;Instance state: $state&quot;
+echo &quot;region: $region&quot;
+
+case $2 in
+&quot;start&quot;)
+echo &quot;Starting the instance as per parameter&quot;
+echo aws ec2 start-instances --instance-id $1 --region $region --dry-run
+
+;;
+&quot;stop&quot; | &quot;Stop&quot;)
+echo &quot;stoping the instance as per parameter&quot;
+aws ec2 stop-instances --instance-id $1 --region $region
+;;
+
+&quot;terminate&quot; | &quot;Terminate&quot;)
+echo &quot;Terminating the instance as per parameter&quot;
+echo aws ec2 terminate-instances --instance-id $1 --region $region --dry-run
+
+;;
+*)
+echo &quot;unknow state&quot;
+;;
+esac
+echo &quot;************  Job ends                ***************&quot;</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.36">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+      <disableDeferredWipeout>false</disableDeferredWipeout>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.10"/>
+  </buildWrappers>
+</project>
