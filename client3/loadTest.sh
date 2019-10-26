@@ -1,5 +1,5 @@
 #!/bin/bash
-source master.config
+source Master.config
 #noOfIterations=2
 #intervalInSec=2
 i=0
