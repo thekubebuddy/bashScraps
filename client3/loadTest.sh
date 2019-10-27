@@ -3,7 +3,7 @@ source Master.config
 #noOfIterations=2
 #intervalInSec=2
 i=0
-remoteDepth=4
+remoteDepth="4"
 getRemoteDepth()
 {
 	# Retruning a dummy remote queue depth
@@ -14,14 +14,13 @@ validateQueueDepthTest()
 {
 	queueDepth=$(getRemoteDepth)
 	echo "QueueDepth: $queueDepth"
-	if [[ $queueDepth -ne 0 ]]
+	if [[ "$queueDepth" != "0" ]]
 	then
 	 echo ">>Remote queue is still non zero"
 	 echo ">>Calling mtasCq -c"
 	 echo ">>Calling mtasCqReply "
 	 # mtasCQ -c
 	 # mtasCReply -c
-
 	 return 1
 	else
 	  echo ">>Remote queue depth is zero"
