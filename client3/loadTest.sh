@@ -2,26 +2,45 @@
 source Master.config
 #noOfIterations=2
 #intervalInSec=2
-i=0
-remoteDepth=4
+i=1
+remoteDepth="4"
+
+#cqOut="PROV \n1\n\nNON PROV\n2\n\nACMDFY \n3\n\nEPS\n4\n\nRSS\n5"
+cqOut="PROV \n0\n\nNON PROV\n0\n\nACMDFY \n0\n\nEPS\n0\n\nRSS\n0"
+
+
+echo -e $cqOut
+
+getQueueDepth_custom()
+{
+# cq | xargs |
+
+PROV=$(echo -e $cqOut | xargs | cut -d ' ' -f 2)
+NON_PROV=$(echo -e $cqOut | xargs | cut -d ' ' -f 5)
+ACMDFY=$(echo -e $cqOut | xargs | cut -d ' ' -f 7)
+totalCnt=$((PROV+NON_PROV+ACMDFY))
+echo "$totalCnt"
+}
+
+
 getRemoteDepth()
 {
 	# Retruning a dummy remote queue depth
-	echo $remoteDepth
+	# echo $remoteDepth
+	echo $(getQueueDepth_custom)
 }
 
 validateQueueDepthTest()
 {
 	queueDepth=$(getRemoteDepth)
 	echo "QueueDepth: $queueDepth"
-	if [[ $queueDepth -ne 0 ]]
+	if [[ "$queueDepth" != "0" ]]
 	then
 	 echo ">>Remote queue is still non zero"
 	 echo ">>Calling mtasCq -c"
 	 echo ">>Calling mtasCqReply "
 	 # mtasCQ -c
 	 # mtasCReply -c
-
 	 return 1
 	else
 	  echo ">>Remote queue depth is zero"
