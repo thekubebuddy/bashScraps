@@ -3,7 +3,7 @@
 source ./Master.config
 NOW=$(date +"%d%h%Y_%H%M%S")
 LOG_FILE=LOGFILE_$NOW.txt
-exec 
+#exec 3>&1 1>>$LOG_FILE 2>&1
 
 
 echo $NOW
@@ -18,52 +18,39 @@ call_test_20()
 	echo "------------------------------------------"
 	echo "Function called successfully"
 }
-# Creating a LOG file
-#touch $LOG_FILE
-#call_test_20 start
-i=1
 
+echo "Calling the while loop" 
 
-getRemoteDepth()
+getQueueDepth()
 {
- 	if [ "$i" -eq 2 ]
-	then
-		echo "0"
-	else
-		echo "hello\n"
-	
-	fi
+	echo $RANDOM
 }
 
-validateQueueDepthTest()
-{
-	queueDepth=$(getRemoteDepth)
-	echo $queueDepth
-	if [ "$queueDepth" != "0" ]
-	then 
-		echo "QueueDepth is not zero\n"
-		echo "Calling mtascq -c\n"
-		#mtasCQ -c
-		#mtasCReply -c
-	else
-		echo "Queue Depth had became zero\n"
-	fi
-}
-while [ $i -le $noOfIterations ]
+count=0
+prevDepth=0
+
+while [ $count -le $noOfIterations ]
 do
-#echo "In while"
-echo "-----------------------------------------------"
-retValue=$(validateQueueDepthTest)
-echo -e $retValue
-echo "-----------------------------------------------"
-if [[ "$retValue" == *"became zero"* ]]
-then
-	echo "yes the queue becames zero"
-	echo "breaking the while loop"
-	break
+
+currentDepth=$(getQueueDepth)
+
+echo "current depth: $currentDepth"
+echo "previous depth: $prevDepth"
+echo "count: $count"
+if [ $currentDepth -lt $prevDepth ]
+then 
+	echo "condition satisfied"
+	count=$((count+1))
+else
+	prevDepth=$currentDepth
+	#sleep $intervalInSec
 fi
-i=$((i+1))
+
+sleep $intervalInSec
+
 done
+
+
 
 
 
