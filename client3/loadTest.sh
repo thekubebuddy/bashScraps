@@ -6,10 +6,11 @@ i=1
 remoteDepth="4"
 
 #cqOut="PROV \n1\n\nNON PROV\n2\n\nACMDFY \n3\n\nEPS\n4\n\nRSS\n5"
-cqOut="PROV \n0\n\nNON PROV\n0\n\nACMDFY \n0\n\nEPS\n0\n\nRSS\n0"
+cqOut="PROV \n$PROV\n\nNON PROV\n$NON_PROV\n\nACMDFY
+\n$ACMDFY\n\nEPS\n$EPS\n\nRSS\n$RSS"
 
 
-echo -e $cqOut
+#echo -e $cqOut
 
 getQueueDepth_custom()
 {
@@ -59,6 +60,9 @@ echo "----------------------------------------"
 validateQueueDepthTest  #Validate queue funtion returns 
 retValue=$?
 echo "----------------------------------------"
+
+# 
+
 
 # If the retValue from validataQueueDepthTest is 1,means no pending requests in queue
 
