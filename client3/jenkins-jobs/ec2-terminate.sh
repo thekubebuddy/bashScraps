@@ -11,17 +11,21 @@ echo "region: $region"
 case $instance_state in
 "start")
 echo "Starting the instance as per parameter"
+# Uncomment the below echo 
 echo aws ec2 $instance_state --instance-id $instance_id --region $region
 --dry-run
 
 ;;
 "stop" | "Stop")
 echo "stoping the instance as per parameter"
+# Uncomment the below echo 
 echo aws ec2 $instance_state --instance-id $instance_id --region $region
 ;;
 
 "terminate" | "Terminate")
+
 echo "Terminating the instance as per parameter"
+# Uncomment the below echo 
 echo aws ec2 $instance_state --instance-id $instance_id --region $region
 --dry-run
 ;;
