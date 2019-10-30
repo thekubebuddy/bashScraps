@@ -49,21 +49,51 @@ done
 COMMENT
 
 
+
+
+validateQueueDepthTest()
+{
+	source ./Master.config
+	queueDepth=$(echo $QDEPTH)
+	prevDepthVal="$QDEPTH"
+	if [ "$queueDepth" != "0" ]
+	then 
+	echo ">>Remote queue is still non zero"
+	echo ">>Calling mtasCq -c"
+	echo ">>Calling mtasCqReply "
+	# mtasCQ -c
+	# mtasCReply -c
+	return 1
+	else
+	echo ">>Remote queue depth is zero"
+	return 0
+	fi
+}
+
+prevDepthVal=0
+
 test1()
 {
 #source ./Master.config
 #prevDepthVal=$QDEPTH
-prevDepthVal=0
+#prevDepthVal=0
 SECONDS=0
+
+echo "prevDepthValue: $prevDepthVal"
+
+validateQueueDepthTest
+echo ">> prevDepthValue: $prevDepthVal"
+
+
 
 echo "Calling test1 function for max 3 iterations for an interval of $intervalInMin"
 
 while [[ $count -le 3 ]]
 do
-source ./Master.config
+#source ./Master.config
 #echo "QDEPTH=$QDEPTH"
+#currentDepthVal=$QDEPTH
 
-currentDepthVal=$QDEPTH
 echo "COUNT: $count"
 echo "CurrentDepth: $currentDepthVal"
 echo "PreviousDepth: $prevDepthVal"
