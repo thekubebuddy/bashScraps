@@ -42,7 +42,7 @@ validateQueueDepthTest()
 	 echo ">>Calling mtasCqReply "
 	 # mtasCQ -c
 	 # mtasCReply -c
-	 return $queueDepth
+	 return 1
 	else
 	  echo ">>Remote queue depth is zero"
 	  return 0
@@ -91,7 +91,6 @@ sleep $intervalInSec
 #echo "----------------------------------------"
 #remoteDepth=$((remoteDepth-1)) # decrementing the remoteDepth value by one
 done
-
 
 
 

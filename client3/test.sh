@@ -19,21 +19,20 @@ call_test_20()
 	echo "Function called successfully"
 }
 
-echo "Calling the while loop" 
+#echo "Calling the while loop" 
 
 getQueueDepth()
 {
 	echo $RANDOM
 }
 
-count=0
+count=1
 prevDepth=0
 
+:<<COMMENT
 while [ $count -le $noOfIterations ]
 do
-
 currentDepth=$(getQueueDepth)
-
 echo "current depth: $currentDepth"
 echo "previous depth: $prevDepth"
 echo "count: $count"
@@ -45,14 +44,76 @@ else
 	prevDepth=$currentDepth
 	#sleep $intervalInSec
 fi
-
 sleep $intervalInSec
+done
+COMMENT
 
+
+test1()
+{
+#source ./Master.config
+#prevDepthVal=$QDEPTH
+prevDepthVal=0
+SECONDS=0
+
+echo "Calling test1 function for max 3 iterations for an interval of $intervalInMin"
+
+while [[ $count -le 3 ]]
+do
+source ./Master.config
+#echo "QDEPTH=$QDEPTH"
+
+currentDepthVal=$QDEPTH
+echo "COUNT: $count"
+echo "CurrentDepth: $currentDepthVal"
+echo "PreviousDepth: $prevDepthVal"
+
+if [ "$currentDepthVal" == "0" ]
+then 
+echo "Current depth becomes zero"
+break
+fi
+
+if [ "$prevDepthVal" == "$currentDepthVal" ] 
+then
+echo "Prev and current depth value is same"
+echo "Count incremented by 1"
+count=$((count+1))
+else
+prevDepthVal=$currentDepthVal
+fi
+if [[ $count -eq 3 ]]
+then
+echo "COUNT: $count"
+echo "CurrentDepth: $currentDepthVal"
+echo "PreviousDepth: $prevDepthVal"
+echo "Test failed"
+break
+fi
+sleep $intervalInMin
 done
 
+echo "Total time for depth to be 0: $((SECONDS/60)) minutes $((SECONDS%60))
+seconds"
+
+}
 
 
+#./test.sh test1
+#./test.sh load 122220
 
+case $1 in 
+	"load")
+		sed -i "s/QDEPTH=.*/QDEPTH=$2/g" ./Master.config
+		echo "Loaded with $2xml load"
+	 ;;
+	 "runtest1"|"test1")
+	 	test1
+	 ;;
+	*)
+	echo "Invalid funtion call"
+	;;
+esac
 
 
 
