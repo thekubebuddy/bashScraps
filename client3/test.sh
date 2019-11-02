@@ -127,10 +127,44 @@ echo "Total time for depth to be 0: $((SECONDS/60)) minutes $((SECONDS%60))
 seconds"
 
 }
+#red='\033[0;31m'
+
+
+TC_LT_AUTO()
+{
+	echo "TC_LT_AUTO CALLEDD"
+
+	echo "**** Executing all the steps in TC_LT_AUTO ****"
+	echo
+	echo "==== STARTING THE REQREADER ON THE LOCAL SERVER ====" 
+	echo "./StartRecReader.sh"
+	sleep 10
+	echo "===  ENDED WITH STARTING THE REQREADER ON LOCAL  ====="
+	echo 
+	echo "**** UPDATING THE REQREADER STATUS FLAG TO 'START' FOR STARTING IT ON THE REMOTE SERVER ****"
+
+	echo 
+
+	sed -i 's/READERSTATUS=.*/READERSTATUS=START/g' ./Master.config 
+	echo "Waiting until READERSTATUS BECOMES 'STARTED'"
+	echo 
+	while :
+	do
+	source ./Master.config
+	if [ "$READERSTATUS" == "STARTED" ]
+	then 
+	     echo "Req Reader successfully started on remote server"
+	     break;
+	fi
+	done
+	echo "Proceeding for further execution step" 
+}
 
 
 #./test.sh test1
 #./test.sh load 122220
+
+
 
 case $1 in 
 	"load")
@@ -140,6 +174,11 @@ case $1 in
 	 "runtest1"|"test1")
 	 	test1
 	 ;;
+	 "TC_LT_AUTO")
+	 	echo "Calling TC_LT_AUTO fucntion on local ip"
+		echo
+		TC_LT_AUTO
+	;;
 	*)
 	echo "Invalid funtion call"
 	;;

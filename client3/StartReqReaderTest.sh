@@ -14,7 +14,8 @@ sleep 10s
 # Function will return the reqReader status flag from the db table
 getReqReaderStatus()
 {
-	sqlQuery="select column_name  from table_name where condition"
+
+sqlQuery="select column_name  from table_name where condition"
 
 :<<COMMENT	
 	reqReadStatus= $ (
@@ -27,7 +28,8 @@ getReqReaderStatus()
 		)	
 	echo $reqReadStatus
 COMMENT
-	echo "START"
+	source ./Master.config
+	echo $READERSTATUS
 }
 
 # Function will update the status flag for reqReader in db table
@@ -47,7 +49,7 @@ updateReqReaderStatus()
 	$sqlQuery
 	END
 COMMENT
-
+	sed -i "s/READERSTATUS=.*/READERSTATUS=$statusToUpdte/g" ./Master.config
 }
 
 
@@ -76,10 +78,18 @@ fi
 
 #https://drive.google.com/open?id=1BhE_iOnFJmKzQjS0ulg47PXuuCmn-QFw
 
-
-
-
-
+:<<COMMENT
+while :
+do 
+clear
+echo "Configured a cron job of 1minute interval"
+echo "***********************************************"
+./StartReqReaderTest.sh
+sleep 1m
+echo "************************************************"
+clear
+done
+COMMENT
 
 
 
