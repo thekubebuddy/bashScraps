@@ -1,0 +1,198 @@
+*****************************************
+CRON TRIGERRED AT: 18:19:01
+*****************************************
+=================================================
+FETCHING THE REQREADER STATUS FROM DB TABLE
+=================================================
+REQREADER STATUS IN DB TABLE: STARTED
+=================================================
+ReqReader is already in started state on the remote server
+*****************************************
+CRON TRIGERRED AT: 18:20:01
+*****************************************
+=================================================
+FETCHING THE REQREADER STATUS FROM DB TABLE
+=================================================
+REQREADER STATUS IN DB TABLE: STARTED
+=================================================
+ReqReader is already in started state on the remote server
+*****************************************
+CRON TRIGERRED AT: 18:21:01
+*****************************************
+=================================================
+FETCHING THE REQREADER STATUS FROM DB TABLE
+=================================================
+REQREADER STATUS IN DB TABLE: STARTED
+=================================================
+ReqReader is already in started state on the remote server
+*****************************************
+CRON TRIGERRED AT: 18:22:01
+*****************************************
+=================================================
+FETCHING THE REQREADER STATUS FROM DB TABLE
+=================================================
+REQREADER STATUS IN DB TABLE: START
+=================================================
+Starting the reqReader on the remote Server
+****Executing the main logic to start the reqReader****
+ReqReader Started successfully on Remote server
+UPDATING STATUS TO 'STARTED'
+update table_name set column_name='STARTED' where condition
+sed: can't read ./Master.config: No such file or directory
+=================================================
+*****************************************
+CRON TRIGERRED AT: 18:23:01
+*****************************************
+=================================================
+FETCHING THE REQREADER STATUS FROM DB TABLE
+=================================================
+REQREADER STATUS IN DB TABLE: START
+=================================================
+Starting the reqReader on the remote Server
+****Executing the main logic to start the reqReader****
+ReqReader Started successfully on Remote server
+UPDATING STATUS TO 'STARTED'
+update table_name set column_name='STARTED' where condition
+sed: can't read ./Master.config: No such file or directory
+=================================================
+*****************************************
+CRON TRIGERRED AT: 18:24:01
+*****************************************
+=================================================
+FETCHING THE REQREADER STATUS FROM DB TABLE
+=================================================
+REQREADER STATUS IN DB TABLE: START
+=================================================
+Starting the reqReader on the remote Server
+****Executing the main logic to start the reqReader****
+ReqReader Started successfully on Remote server
+UPDATING STATUS TO 'STARTED'
+update table_name set column_name='STARTED' where condition
+sed: can't read ./Master.config: No such file or directory
+=================================================
+*****************************************
+CRON TRIGERRED AT: 18:25:01
+*****************************************
+=================================================
+FETCHING THE REQREADER STATUS FROM DB TABLE
+=================================================
+REQREADER STATUS IN DB TABLE: START
+=================================================
+Starting the reqReader on the remote Server
+****Executing the main logic to start the reqReader****
+ReqReader Started successfully on Remote server
+UPDATING STATUS TO 'STARTED'
+update table_name set column_name='STARTED' where condition
+=================================================
+
+
+*****************************************
+CRON TRIGERRED AT: 18:26:01
+*****************************************
+=================================================
+FETCHING THE REQREADER STATUS FROM DB TABLE
+=================================================
+REQREADER STATUS IN DB TABLE: STARTED
+=================================================
+ReqReader is already in started state on the remote server
+
+
+*****************************************
+CRON TRIGERRED AT: 18:27:01
+*****************************************
+=================================================
+FETCHING THE REQREADER STATUS FROM DB TABLE
+=================================================
+REQREADER STATUS IN DB TABLE: STARTED
+=================================================
+ReqReader is already in started state on the remote server
+
+
+*****************************************
+CRON TRIGERRED AT: 18:28:01
+*****************************************
+=================================================
+FETCHING THE REQREADER STATUS FROM DB TABLE
+=================================================
+REQREADER STATUS IN DB TABLE: STARTED
+=================================================
+ReqReader is already in started state on the remote server
+
+
+*****************************************
+CRON TRIGERRED AT: 18:29:01
+*****************************************
+=================================================
+FETCHING THE REQREADER STATUS FROM DB TABLE
+=================================================
+REQREADER STATUS IN DB TABLE: STARTED
+=================================================
+ReqReader is already in started state on the remote server
+
+
+*****************************************
+CRON TRIGERRED AT: 18:30:01
+*****************************************
+=================================================
+FETCHING THE REQREADER STATUS FROM DB TABLE
+=================================================
+REQREADER STATUS IN DB TABLE: STARTED
+=================================================
+ReqReader is already in started state on the remote server
+
+
+*****************************************
+CRON TRIGERRED AT: 18:31:01
+*****************************************
+=================================================
+FETCHING THE REQREADER STATUS FROM DB TABLE
+=================================================
+REQREADER STATUS IN DB TABLE: STARTED
+=================================================
+ReqReader is already in started state on the remote server
+
+
+*****************************************
+CRON TRIGERRED AT: 18:32:01
+*****************************************
+=================================================
+FETCHING THE REQREADER STATUS FROM DB TABLE
+=================================================
+REQREADER STATUS IN DB TABLE: STARTED
+=================================================
+ReqReader is already in started state on the remote server
+
+
+*****************************************
+CRON TRIGERRED AT: 18:33:01
+*****************************************
+=================================================
+FETCHING THE REQREADER STATUS FROM DB TABLE
+=================================================
+REQREADER STATUS IN DB TABLE: STARTED
+=================================================
+ReqReader is already in started state on the remote server
+
+
+*****************************************
+CRON TRIGERRED AT: 18:34:01
+*****************************************
+=================================================
+FETCHING THE REQREADER STATUS FROM DB TABLE
+=================================================
+REQREADER STATUS IN DB TABLE: STARTED
+=================================================
+ReqReader is already in started state on the remote server
+
+
+*****************************************
+CRON TRIGERRED AT: 18:35:01
+*****************************************
+=================================================
+FETCHING THE REQREADER STATUS FROM DB TABLE
+=================================================
+REQREADER STATUS IN DB TABLE: STARTED
+=================================================
+ReqReader is already in started state on the remote server
+
+

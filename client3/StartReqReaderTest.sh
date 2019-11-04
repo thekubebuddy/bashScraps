@@ -1,5 +1,6 @@
 #!/bin/bash
 
+SCRIPT_PATH="/home/ec2-user/bashScraps/client3/"
 # Main function for starting the reqReader on Remote Server
 
 startReqReader()
@@ -28,7 +29,7 @@ sqlQuery="select column_name  from table_name where condition"
 		)	
 	echo $reqReadStatus
 COMMENT
-	source ./Master.config
+	source $SCRIPT_PATH/Master.config
 	echo $READERSTATUS
 }
 
@@ -49,10 +50,16 @@ updateReqReaderStatus()
 	$sqlQuery
 	END
 COMMENT
-	sed -i "s/READERSTATUS=.*/READERSTATUS=$statusToUpdte/g" ./Master.config
+	sed -i "s/READERSTATUS=.*/READERSTATUS=$statusToUpdte/g" $SCRIPT_PATH/Master.config
 }
 
+CRONLOG=$SCRIPT_PATH/CRONLOG_$(date "+%d%h%Y").log
 
+exec 3>&1 1>>$CRONLOG 2>&1  
+
+echo "*****************************************"
+echo "CRON TRIGERRED AT: $(date "+%H:%M:%S")"
+echo "*****************************************"
 echo "================================================="
 echo "FETCHING THE REQREADER STATUS FROM DB TABLE"
 echo "================================================="
@@ -71,7 +78,8 @@ then
 	echo "ReqReader is already in started state on the remote server"
 
 fi
-
+echo
+echo
 
 
 
@@ -79,6 +87,7 @@ fi
 #https://drive.google.com/open?id=1BhE_iOnFJmKzQjS0ulg47PXuuCmn-QFw
 
 :<<COMMENT
+
 while :
 do 
 clear
@@ -88,6 +97,7 @@ echo "***********************************************"
 sleep 1m
 echo "************************************************"
 clear
+# */1 * * * * . /home/ec2-user/bashScraps/client3/StartReqReaderTest.sh
 done
 COMMENT
 
