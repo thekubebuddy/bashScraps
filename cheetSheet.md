@@ -99,11 +99,17 @@ telnet google 80 # checking whether google is listening with port 80
 :set ts=2 #tabstop
 :set tw=2 #tabwidth
 :set et
-:le 3 #left indent with 3
+:le 3 #left indent with 3space
 gg #top
 GA #bottom
-
+:m 1 #move current line up by 1 
 ```
- 
+
+11. bashrc
+```
+PS1="\033[01;34m~> \[\033[00m\]"
+PS1="'${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;35m\]\w\$\[\033[00m\] '"
+\033[01;34m
+```
 
 
