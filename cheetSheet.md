@@ -1,59 +1,109 @@
 
 1. Find
+```
  find ./ -name '\*.sh'
+
  find ./ -type f \\( -name  '\*.sh.\*' -o -name '\*.sh' \\)
  -size 1k 1M 1w(byte)
  -mtime 
  -atime 
  -perm
  -exec {} \; 
+```
 
 2. grep 
+```
 grep -irln ./ --color -e 'hello\*'  
 grep -irlE ./ -e 'hell'
 grep -irnE ./ -e 'Example\*|unannotated\*' --color
+grep -v '#' abc.yaml 	#exclude all lines with # symbols
+```
 
-3. du
+3. du and df
+```
 du -sh .
 du -sh *
+df -h
+```
 
 4. wc ( lines words characters )
+```
 cat abc.txt | wc
 cat abc.txt | wc -l  
 cat abc.txt | wc -c  // run the characters
 cat abc.txt | wc -L  // longest line 
-
+```
 
 
 
 5. tail head cat
-cat -n abc.txt
+
+```
+cat -n abc.txt #catting with lines
 vim +15 abc.txt  // opening vim on 15lines
 tail -f abc.txt  
 head -n 10 abc.txt
+```
 
 6. SED
 
+```
 sed '/^$/d'
 sed 's/parttime/fulltime/1' abc.txt => first occurence in line
 sed 's/parttime/fulltime/2' abc.txt => 2nd occurence in line
-sed -n 1p abc.txt
+sed -n 1p abc.txt #show only the 1st line
 sed 's/parttime/fulltime/1w abcd.txt' abc.txt => substitude and write it into abcd.txt
 sed '11 s/parttime/fulltime/' abc.txt => replace only on 11line
 sed '11 s/parttime/[fulltime]/2' abc.txt => replace only on 11line 2nd occurnce
 sed '1,5 s/parttime/fulltime/' abc.txt => replace between 1,5 lines
-sed 's|//.\*||' abc.txt ==> all comments  replacements
+
+sed 's|//.\*||' abc.txt # all comments  replacements
+
+sed '$d' abc.txt # delete last line
+
+sed '1s/.*/enabled: true/; 2s/:.*/: false/' fiat.yml # ".*" anything
+
+sed -i 's/LoadBalancer/NodePort/;s/31380/30080/' file.yaml #multiple replcemnet
+
+
+```
 
 7. SSH  
+```
 ssh-keygen 
 ssh-copy-id user@ip
+ssh user@ip -L 8080:localhost:8080 # Port forwarding with ssh tunnel with no reverse proxy or ssl
+ssh -T git@github.com #check the git ssh connections
 
-**Running all sudo cmds without any root/sudo passwd**
-/ect/sudoers or visudo
+```
 
+8. **Running all sudo cmds without any root/sudo passwd**
+/etc/sudoers or visudo
+```
 user ALL=(ALL) NOPASSWD: ALL 
 %user_grp ALL=(ALL) NOPASSWD: ALL
+```
 
+9. telnet, netstat, nslookup
+```
+netstat -tupln # listing all listening ports with there application name if sudo is used
+nslookup google.com # resoloving the dns name to addrs
+telnet google 80 # checking whether google is listening with port 80
 
+```
 
+10. vim
+```
+:set ai
+:set ru
+:set ts=2 #tabstop
+:set tw=2 #tabwidth
+:set et
+:le 3 #left indent with 3
+gg #top
+GA #bottom
+
+```
  
+
+
