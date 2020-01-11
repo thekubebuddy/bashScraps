@@ -1,7 +1,12 @@
 Table of Contnents
 ===================
-1. [Find]
-2. []
+1. [Find](#1-find)
+2. [grep](#2-grep)
+3. [du and df](#3-du-and-df)
+5. [wc](#4-wc--lines-words-characters-)
+4. [cat head tail](#5-tail-head-cat)
+6. [grep](#2-grep)
+7. [Read lines from Stream](#7-whil)
 
 
 ### 1. Find
@@ -118,4 +123,10 @@ PS1="'${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[
 \033[01;34m
 ```
 
-
+### 12. Read lines from stdin
+```
+while read line
+do
+echo $line
+done
+```
