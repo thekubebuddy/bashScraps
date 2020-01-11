@@ -1,5 +1,10 @@
+Table of Contnents
+===================
+1. [Find]
+2. []
 
-1. Find
+
+### 1. Find
 ```
  find ./ -name '\*.sh'
 
@@ -11,7 +16,7 @@
  -exec {} \; 
 ```
 
-2. grep 
+### 2. grep 
 ```
 grep -irln ./ --color -e 'hello\*'  
 grep -irlE ./ -e 'hell'
@@ -19,14 +24,14 @@ grep -irnE ./ -e 'Example\*|unannotated\*' --color
 grep -v '#' abc.yaml 	#exclude all lines with # symbols
 ```
 
-3. du and df
+### 3. du and df
 ```
 du -sh .
 du -sh *
 df -h
 ```
 
-4. wc ( lines words characters )
+### 4. wc ( lines words characters )
 ```
 cat abc.txt | wc
 cat abc.txt | wc -l  
@@ -36,7 +41,7 @@ cat abc.txt | wc -L  // longest line
 
 
 
-5. tail head cat
+### 5. tail head cat
 
 ```
 cat -n abc.txt #catting with lines
@@ -45,7 +50,7 @@ tail -f abc.txt
 head -n 10 abc.txt
 ```
 
-6. SED
+### 6. SED
 
 ```
 sed '/^$/d'
@@ -68,8 +73,8 @@ sed -i 's/LoadBalancer/NodePort/;s/31380/30080/' file.yaml #multiple replcemnet
 
 ```
 
-7. SSH  
-```
+### 7. SSH  
+``` 
 ssh-keygen 
 ssh-copy-id user@ip
 ssh user@ip -L 8080:localhost:8080 # Port forwarding with ssh tunnel with no reverse proxy or ssl
@@ -77,14 +82,14 @@ ssh -T git@github.com #check the git ssh connections
 
 ```
 
-8. **Running all sudo cmds without any root/sudo passwd**
+### 8. **Running all sudo cmds without any root/sudo passwd**
 /etc/sudoers or visudo
 ```
 user ALL=(ALL) NOPASSWD: ALL 
 %user_grp ALL=(ALL) NOPASSWD: ALL
 ```
 
-9. telnet, netstat, nslookup
+### 9. telnet, netstat, nslookup
 ```
 netstat -tupln # listing all listening ports with there application name if sudo is used
 nslookup google.com # resoloving the dns name to addrs
@@ -92,10 +97,11 @@ telnet google 80 # checking whether google is listening with port 80
 
 ```
 
-10. vim
+### 10. vim
 ```
 :set ai
 :set ru
+:set nu
 :set ts=2 #tabstop
 :set tw=2 #tabwidth
 :set et
@@ -105,8 +111,8 @@ GA #bottom
 :m 1 #move current line up by 1 
 ```
 
-11. bashrc
-```
+### 11. bashrc
+```	
 PS1="\033[01;34m~> \[\033[00m\]"
 PS1="'${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;35m\]\w\$\[\033[00m\] '"
 \033[01;34m
