@@ -123,10 +123,36 @@ PS1="'${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[
 \033[01;34m
 ```
 
-### 12. Read lines from stdin
+### 12. Read lines from stdin or a file
 ```
 while read line
 do
 echo $line
 done
+
+for line in $(cat file.txt)
+do
+echo $line
+done
+```
+
+### 13. cat stdin into a file
+```
+cat > file.txt <<-EOF
+line1 
+line2
+line3
+line4
+line5
+EOF
+```
+
+### replace '\n' with '\t' and paste
+```
+cat file.csv | tr '\n' '\t'
+```
+* paste is usefull when we want to merge the line of a file. Into a single line or based on delimeter
+* paste with a filename is similar as that of cat cmd
+```
+paste file1.txt # cat file1.txt
 ```
