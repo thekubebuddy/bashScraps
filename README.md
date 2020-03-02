@@ -4,7 +4,7 @@ Table of Content
 1. [Setting different versions of bins](#1-setting-different-versions-of-binaries)
 2. [virtual envs in python](#2-setting-up-virtual-envs-in-python)
 3. [Systemd service in linux](#3-systemd-service-creationdaemon-process)
-
+4. [Mysql on Ubuntu](#4-mysql-on-ubuntu)
 
 
 
@@ -85,6 +85,54 @@ For watching the logs for our **webserver service**
 ```
 journalctl -f -u webserver  # webserver-> service name
 ```
+
+## 4. Mysql on Ubuntu(Hosting a mysql server and exposing as a service)
+
+Installing mysql-server and allow the OS user to use "mysql"
+
+```
+sudo apt-get update
+sudo apt-get install mysql-server -y
+sudo mysql_secure_installation
+sudo systemctl status mysql.service
+sudo systemctl restart mysql.service
+
+# for allowing mysql login for non-root users
+mysql -u root -p
+use mysql;
+SELECT User, Host, plugin FROM mysql.user;
+CREATE USER 'user1'@'localhost' IDENTIFIED BY '<user-passwd>';
+UPDATE user SET plugin='auth_socket' WHERE User='user1';
+FLUSH PRIVILEGES;
+exit;
+
+CREATE DATABASE sample_db1;
+use sample_db1;
+create table sample_table ( id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY ,full_names VARCHAR(150) , gender VARCHAR(6))
+
+```
+
+Allowing access from other machines/ip too
+```
+# change the bind address in mysql.conf file:
+
+/etc/mysql/mysqld/mysql.conf
+bind_addres=0.0.0.0
+
+# create a user and allow access to it from external ip's 
+mysql -u root -p
+
+## SELECT User, Host, plugin FROM mysql.user\G;
+# Creating a user 
+CREATE USER 'user1'@'localhost' IDENTIFIED BY '<user-passwd>';
+GRANT ALL PRIVILEGES ON *.* TO 'user1'@'%' IDENTIFIED BY '<user-passwd>';
+FLUSH PRIVILEGES;
+exit;
+
+
+```
+
+
 
 
 
