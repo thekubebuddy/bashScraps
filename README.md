@@ -86,7 +86,7 @@ For watching the logs for our **webserver service**
 journalctl -f -u webserver  # webserver-> service name
 ```
 
-## 4. Mysql on Ubuntu(Hosting a mysql server and exposing as a service)
+## 4. Mysql on Ubuntu 18.04(Hosting a mysql server and exposing as a service)
 
 Installing mysql-server and allow the OS user to use "mysql" client
 
@@ -96,6 +96,10 @@ sudo apt-get install mysql-server -y
 sudo mysql_secure_installation
 sudo systemctl status mysql.service
 sudo systemctl restart mysql.service
+
+# for installing the client
+
+sudo apt-get update && apt install mysql-client -y
 
 # for allowing mysql login for non-root users
 mysql -u root -p
@@ -129,6 +133,28 @@ GRANT ALL PRIVILEGES ON *.* TO 'user1'@'%' IDENTIFIED BY '<user-passwd>';
 FLUSH PRIVILEGES;
 exit;
 ```
+
+Access the mysql db from the client machine
+```
+mysql --host <ip-addr-of-mysql-instance> -u <user-name> -p
+```
+
+
+
+Installing LAMP stack on ubuntu
+```
+sudo apt install apache2 -y
+sudo apt install php libapache2-mod-php php-mysql -y
+
+sudo su
+vi /var/www/html/index.php
+<?php
+phpinfo();
+?>
+
+```
+
+
 
 
 
