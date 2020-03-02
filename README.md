@@ -88,7 +88,7 @@ journalctl -f -u webserver  # webserver-> service name
 
 ## 4. Mysql on Ubuntu(Hosting a mysql server and exposing as a service)
 
-Installing mysql-server and allow the OS user to use "mysql"
+Installing mysql-server and allow the OS user to use "mysql" client
 
 ```
 sudo apt-get update
@@ -112,7 +112,7 @@ create table sample_table ( id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY ,full_
 
 ```
 
-Allowing access from other machines/ip too
+Allowing the db access from other machines/ip too through creating a user
 ```
 # change the bind address in mysql.conf file:
 
@@ -128,9 +128,10 @@ CREATE USER 'user1'@'localhost' IDENTIFIED BY '<user-passwd>';
 GRANT ALL PRIVILEGES ON *.* TO 'user1'@'%' IDENTIFIED BY '<user-passwd>';
 FLUSH PRIVILEGES;
 exit;
-
-
 ```
+
+
+
 
 
 
