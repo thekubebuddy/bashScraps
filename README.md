@@ -4,7 +4,7 @@ Table of Content
 1. [Setting different versions of bins](#1-setting-different-versions-of-binaries)
 2. [virtual envs in python](#2-setting-up-virtual-envs-in-python)
 3. [Systemd service in linux](#3-systemd-service-creationdaemon-process)
-4. [Mysql on Ubuntu](#4-mysql-on-ubuntu)
+4. [Mysql on Ubuntu](#4-mysql-on-ubuntuhosting-a-mysql-server-and-exposing-as-a-service)
 
 
 
