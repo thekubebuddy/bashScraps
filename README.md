@@ -5,7 +5,7 @@ Table of Content
 2. [virtual envs in python](#2-setting-up-virtual-envs-in-python)
 3. [Systemd service in linux](#3-systemd-service-creationdaemon-process)
 4. [Mysql on Ubuntu](#4-mysql-on-ubuntuhosting-a-mysql-server-and-exposing-as-a-service)
-
+5. [SSH config file sample](#5-ssh-config-file-sample)
 
 
 ## 1. Setting different versions of binaries
@@ -156,11 +156,18 @@ phpinfo();
 
 
 
+## 5. SSH config file sample
+```
+Host <hostname>
+    HostName <ip-addr> 
+    User <username>
+    Port 22
+    IdentityFile <path-for-.pem-file> 
+```
 
 
-
-
-
-
+```
+sudo chown -R www-data:www-data *
+```
 
 
