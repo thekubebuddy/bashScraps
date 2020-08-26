@@ -16,6 +16,14 @@ bind -n C-Down select-pane -D
 #set -g mouse-select-pane on
 #set -g mouse-resize-pane on
 set -g mouse on
+setw -g mode-keys vi
+#bind p paste-buffer
+#bind C-p choose-buffer
+#bind p paste-bufferbind C-p choose-buffer
+#@set -g @copy_use_osc52_fallback on
+# trigger copy mode by
+#bind -n M-Up copy-mode
+
 # don't rename windows automatically
 set-option -g allow-rename off
 
