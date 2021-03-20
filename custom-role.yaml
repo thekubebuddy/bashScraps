@@ -1,0 +1,12 @@
+title: "custom_iap_role"
+description: "IAP tunnel user custom role"
+stage: "ALPHA"
+includedPermissions:
+- compute.projects.get
+- compute.instances.get
+- compute.instances.getIamPolicy
+- compute.instances.list
+- compute.instances.setMetadata
+- compute.zoneOperations.get
+- iap.tunnelInstances.accessViaIAP
+- accessapproval.requests.list
