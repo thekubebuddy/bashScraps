@@ -105,6 +105,11 @@ gcloud kms encrypt \
 
 ```
 
+* Getting the GKE cluster name from the metadata server
+```
+kubectl run curl --rm --restart=Never -it --image=appropriate/curl -- -H "Metadata-Flavor: Google" http://metadata.google.internal/computeMetadata/v1/instance/attributes/cluster-name
+```
+
 Recommended/Best practices ref:
 ```
 # for managing the credentials

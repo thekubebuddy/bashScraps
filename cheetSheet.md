@@ -151,8 +151,26 @@ EOF
 ```
 cat file.csv | tr '\n' '\t'
 ```
+
+
+
 * paste is usefull when we want to merge the line of a file. Into a single line or based on delimeter
 * paste with a filename is similar as that of cat cmd
 ```
 paste file1.txt # cat file1.txt
+```
+
+* Checking for the bin file is present or not within the system
+```bash
+#!/bin/bash
+CMD=$(which htpasswd 2>/dev/null)
+check_config() {
+    if [ -z $CMD ]; then
+        printf "Exiting: htpasswd is missing.\n"
+        exit 1
+    fi
+}
+
+check_config
+exit $?
 ```
