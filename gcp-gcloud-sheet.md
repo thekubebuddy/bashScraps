@@ -26,9 +26,40 @@ echo $PROJECT_ID $REGION $ZONE
 gcloud beta compute ssh --zone "us-west1-a" "host-us-wst1-a-01" --tunnel-through-iap --project $PROJECT -- -f -N -L 8081:localhost:443
 ```
 
+#### GKE
+```
+gcloud container clusters create hello-cluster --num-nodes=1 --labels owner=ishaq --project metal-voyager-280804 --preemptible  
+```
+
 
 #### Networking
 ```
+
+export GCP_REGION="us-west1"
+export NET_NAME="vpc-1"
+export SUBNET1_NAME="gke-subnet-1"
+export SUBNET1_RANGE="10.192.43.0/24"
+export SUBNET1_POD_RANGE="10.194.0.0/16"
+export SUBNET1_SVC_RANGE="10.192.44.0/22"
+
+#vpc creation
+gcloud compute networks create $NET_NAME --subnet-mode custom
+
+#subnet with secondary ranges
+gcloud beta compute networks subnets create $SUBNET1_NAME \
+--network $NET_NAME --range $SUBNET1_RANGE --region $GCP_REGION \
+--secondary-range pod-range=$SUBNET1_POD_RANGE,svc-range=$SUBNET1_SVC_RANGE
+
+# IAP firewall rule
+gcloud compute firewall-rules create $NET_NAME-allow-iap-access-fw \
+    --network $NET_NAME \
+    --allow tcp:22 \
+    --source-ranges 35.235.240.0/20 \
+    --target-tags allow-iap-access
+
+
+
+# firewall rule updation
 gcloud compute firewall-rules update k8s-fw-l7--0e440d4ebdfbbd81 --description "GCE L7 firewall rule" --allow tcp:30000-32767,tcp:4141 --source-ranges 130.211.0.0/22,35.191.0.0/16 --target-tags gke-prod-gke-config-mgmt-us-wst1-cluster-a9edb9cd-node --project $PROJECT_ID
 ```
 
