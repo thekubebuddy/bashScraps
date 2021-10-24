@@ -3,12 +3,13 @@ Table of Content
 
 1. [Setting different versions of bins](#1-setting-different-versions-of-binaries)
 2. [virtual envs in python](#2-setting-up-virtual-envs-in-python)
-3. [Mysql on Ubuntu](#4-mysql-on-ubuntuhosting-a-mysql-server-and-exposing-as-a-service)
-4. [SSH config file sample](#5-ssh-config-file-sample)
+3. [Mysql on Ubuntu](#3-mysql-on-ubuntu-1804hosting-a-mysql-server-and-exposing-as-a-service)
+4. [SSH config file sample](#4-ssh-config-file-sample)
 5. Process manangers for linux:
     * Systemd service in linux 
     * monit
     * supervisord
+6. Adding user and enabling the SSH(On Ubuntu-GCE)
 
 
 
@@ -191,3 +192,30 @@ https://medium.com/@shahbaz.ali03/run-apache-airflow-as-a-service-on-ubuntu-18-0
 
 
 
+6. Adding user and enabling the SSH(On Ubuntu-GCE)
+
+```bash
+#1. User creation:
+sudo useradd -d /home/ubuntu -m ubuntu
+
+#2  Set the passwd for the 'ubuntu' user
+sudo passwd ubuntu 
+
+#3 set the 'PasswordAuthentication' flag for allowing the passwd auth.
+sudo vi /etc/ssh/sshd_config
+PasswordAuthentication yes 
+
+#4 restart the sshd service
+sudo systemctl restart sshd
+
+#5 swich to the ubuntu user
+sudo su - ubuntu
+
+#6 create the key files for the ubuntu user with all of the default setting
+ssh-keygen
+
+# 7. list the created key files
+ll ~/.ssh/
+```
+
+>Note: Restricitive firewall rules should be in place for having access on Port:22 
