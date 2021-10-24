@@ -209,7 +209,7 @@ PasswordAuthentication yes
 sudo systemctl restart sshd
 
 #5 swich to the ubuntu user
-sudo su - ubuntu
+su - ubuntu
 
 #6 create the key files for the ubuntu user with all of the default setting
 ssh-keygen
