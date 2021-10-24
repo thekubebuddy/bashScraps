@@ -192,7 +192,7 @@ https://medium.com/@shahbaz.ali03/run-apache-airflow-as-a-service-on-ubuntu-18-0
 
 
 
-6. Adding user and enabling the SSH(On Ubuntu-GCE)
+### 6. Adding user and enabling the SSH(On Ubuntu-GCE)
 
 ```bash
 #1. User creation:
